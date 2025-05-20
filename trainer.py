@@ -1,6 +1,3 @@
-"""
-Nhận DStream → huấn luyện mô hình theo mini-batch.
-"""
 import pyspark
 from pyspark.context import SparkContext
 from pyspark.streaming.context import StreamingContext
@@ -14,10 +11,10 @@ from dataloader import DataLoader
 class SparkConfig:
     appName        = "CIFAR-Stream"
     receivers      = 4
-    host           = "local"          # master URL
+    host           = "local"
     stream_host    = "localhost"
     port           = 6100
-    batch_interval = 2                # seconds
+    batch_interval = 2
 
 # ---------- Trainer class ---------- #
 class Trainer:
