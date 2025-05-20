@@ -62,6 +62,3 @@ class Trainer:
         print(f"Precision: {prec:.4f} | Recall: {rec:.4f} | F1: {f1:.4f}")
         print(f"Batch size RDD: {rdd.count()}")
         print("-"*32)
-
-    # predict-only flow (giữ lại nếu cần)
-    # def predict(self): ...
