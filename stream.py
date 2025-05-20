@@ -1,6 +1,3 @@
-"""
-Fake-server đọc CIFAR-10 binary ⇒ gửi JSON qua socket TCP.
-"""
 import os, json, time, socket, pickle, argparse
 import numpy as np
 from tqdm import tqdm
@@ -39,7 +36,6 @@ def load_one(file_path):
     return batch[b"data"], batch[b"labels"]
 
 def gen_payload(images, labels):
-    # images: (N, 3072)
     payload = {i: {**{f"feature-{k}": int(v) for k,v in enumerate(img)},
                    "label": int(labels[i])} for i, img in enumerate(images)}
     return (json.dumps(payload)+"\n").encode()
@@ -63,7 +59,6 @@ def stream_dataset(conn, folder, bs, split, sleep):
                 return
             time.sleep(sleep)
 
-# --------------------------------------- #
 if __name__ == "__main__":
     args  = get_args()
     conn  = open_socket()
